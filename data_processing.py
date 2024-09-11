@@ -25,14 +25,14 @@ def process_top_5_courses(local_file_path):
         df = df[~df['CourseName'].str.contains(course_name_pattern, case=False, na=False)]
         
         # Convert DateStarted column to datetime
-        df['DateStarted'] = pd.to_datetime(df['DateStarted'], errors='coerce')
+        df['DateStarted'] = pd.to_datetime(df['DateStarted'], format='mixed', errors='coerce')
 
         # Filter out rows where DateStarted is older than 30 days
         thirty_days_ago = datetime.now() - timedelta(days=30)
         df = df[df['DateStarted'] >= thirty_days_ago]
 
-        # Filter out rows where IsActive is True
-        df = df[df['IsActive'] == False]
+        # Filter rows where IsActive is True
+        df = df[df['IsActive'] == True]
 
         # Get the top 5 courses and their counts
         top_5_courses = df['CourseName'].value_counts().head(5).to_dict()
