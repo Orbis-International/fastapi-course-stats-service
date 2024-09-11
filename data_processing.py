@@ -10,7 +10,7 @@ def process_top_5_courses(local_file_path):
     """
     # List of course titles to be removed
     courses_to_remove = [
-        "Webinar", "webinar", "Ready for Take Off?", 
+        "Webinar", "webinar", "Ready for Take Off?", "Before you begin",
         "Module 1: Optic disc", "Module 2: Optic Neuropathy", 
         "Module 3: Pupil", "Module 4: Unexpected Vision Loss", 
         "Module 5: Ocular Motility", "Module 6: Systemic Conditions"
